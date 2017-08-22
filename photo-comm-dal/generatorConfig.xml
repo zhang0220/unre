@@ -35,12 +35,11 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成哪些表 -->
-		<table tableName="tbl_photo_member" domainObjectName="PhotoMember"
+		<table tableName="tbl_photo_scan" domainObjectName="PhotoScan"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
 			<generatedKey column="id" sqlStatement="JDBC" identity="true" />
 		</table>
-
 	</context>
 </generatorConfiguration> 
