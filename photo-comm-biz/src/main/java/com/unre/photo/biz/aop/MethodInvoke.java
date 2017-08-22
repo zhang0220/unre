@@ -19,7 +19,6 @@ import com.unre.photo.comm.AppConstants;
 public class MethodInvoke {
 
 	private static final Log LOGGER = LogFactory.getLog(MethodInvoke.class);
-
 	@Around("execution(* com.unre.photo.biz.logic.facade.*.*(..))")
 	public BaseResponse aroundMethod(ProceedingJoinPoint joinPoint) {
 

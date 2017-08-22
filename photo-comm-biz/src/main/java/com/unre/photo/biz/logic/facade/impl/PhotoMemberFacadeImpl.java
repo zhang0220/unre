@@ -17,7 +17,7 @@ import com.unre.photo.comm.AppConstants;
  * @author TDH
  *
  */
-@Service("photoMemberFacade")
+@Service
 public class PhotoMemberFacadeImpl implements IPhotoMemberFacade {
 
 	@Autowired

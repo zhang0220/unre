@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.unre.photo.biz.logic.facade.IPhotoMemberFacade;
 import com.unre.photo.biz.request.PhotoMemberRequest;
-import com.unre.photo.biz.response.Error;
 import com.unre.photo.biz.response.PhotoMemberResponse;
-import com.unre.photo.comm.AppConstants;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
-import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
+import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
  * @author TDH

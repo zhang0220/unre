@@ -5,12 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.unre.photo.biz.dto.PhotoMemberDto;
 import com.unre.photo.biz.dto.PhotoScanDto;
 import com.unre.photo.biz.logic.core.IPhotoScanBiz;
 import com.unre.photo.biz.logic.facade.IPhotoScanFacade;
 import com.unre.photo.biz.request.PhotoScanRequest;
-import com.unre.photo.biz.response.PhotoMemberResponse;
 import com.unre.photo.biz.response.PhotoScanResponse;
 
 /**

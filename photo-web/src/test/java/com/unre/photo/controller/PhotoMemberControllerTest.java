@@ -21,11 +21,24 @@ public class PhotoMemberControllerTest extends BaseTest {
 		Assert.assertNull(res.getError());
 	}
 
-	@Test
+	//@Test
 	public void testQueryPhotoMember() throws Exception {
 		String urlSuffix = "member/queryPhotoMember.do";
 		String memberNo = "001";
 		String json = "{\"photoMemberDto\": {\"memberNo\": \"" + memberNo + "\"}}";
+		String result = this.postRequest(urlSuffix, json);
+		Assert.assertNotNull(result);
+		BaseResponse res = (BaseResponse) JsonUtil.toObject(result, PhotoMemberResponse.class);
+		Assert.assertNull(res.getError());
+
+	}
+	
+	@Test
+	public void testlogin() throws Exception {
+		String urlSuffix = "member/login.do";
+		String tel = "15026979827";
+		String password = "1";
+		String json = "{\"photoMemberDto\":{\"tel\":\""+tel+"\",\"password\":\""+password+"\"}}";
 		String result = this.postRequest(urlSuffix, json);
 		Assert.assertNotNull(result);
 		BaseResponse res = (BaseResponse) JsonUtil.toObject(result, PhotoMemberResponse.class);

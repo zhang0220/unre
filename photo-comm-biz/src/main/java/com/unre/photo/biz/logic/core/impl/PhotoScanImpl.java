@@ -28,7 +28,7 @@ public class PhotoScanImpl implements IPhotoScanBiz {
 	private PhotoScanMapper photoScanMapper;
 	
 	@Autowired
-	private IPhotoScanItemBiz photoScanItemBizImpl;
+	private IPhotoScanItemBiz photoScanItemBiz;
 
 	private static final Log LOGGER = LogFactory.getLog(PhotoScanImpl.class);
 
@@ -140,7 +140,7 @@ public class PhotoScanImpl implements IPhotoScanBiz {
 				PhotoScanItemDto pScanItemDto = new PhotoScanItemDto();
 				pScanItemDto.setBenacoScanId(benacoScanId);
 				pScanItemDto.setImagePath(imageFullPath);
-				photoScanItemBizImpl.addPhotoScanItem(pScanItemDto);
+				photoScanItemBiz.addPhotoScanItem(pScanItemDto);
 			}
 			flg = true;
 			
