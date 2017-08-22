@@ -1,6 +1,5 @@
 package com.unre.photo.biz.logic.core.impl;
 
-
 public class RedisBizImpl extends ABaseRedis<String, Object> {
 
 	@Override
@@ -12,6 +11,5 @@ public class RedisBizImpl extends ABaseRedis<String, Object> {
 	protected Object get(String k) {
 		return super.get(k);
 	}
-     
-	
+
 }

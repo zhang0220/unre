@@ -3,7 +3,7 @@ package com.unre.photo.biz.logic.core;
 import com.unre.photo.biz.dto.PanoramaEngineDto;
 
 public interface IPanoramaEngineBiz {
-   
+
 	/**
 	 * 新增benaco scan
 	 * 
@@ -13,7 +13,7 @@ public interface IPanoramaEngineBiz {
 	 * @throws Exception
 	 */
 	public PanoramaEngineDto createScan(PanoramaEngineDto panoramaEngineDto) throws Exception;
-	
+
 	/**
 	 * 添加scan的3D照片
 	 * 
@@ -23,7 +23,7 @@ public interface IPanoramaEngineBiz {
 	 * @throws Exception
 	 */
 	public PanoramaEngineDto addPhotos(PanoramaEngineDto panoramaEngineDto) throws Exception;
-	
+
 	/**
 	 * 开始将3D照片制作成全景照片
 	 * 
@@ -33,7 +33,7 @@ public interface IPanoramaEngineBiz {
 	 * @throws Exception
 	 */
 	public boolean startProcessing(PanoramaEngineDto panoramaEngineDto) throws Exception;
-	
+
 	/**
 	 * 查询Scan状态
 	 * 
@@ -43,7 +43,7 @@ public interface IPanoramaEngineBiz {
 	 * @throws Exception
 	 */
 	public PanoramaEngineDto queryScanStatus(PanoramaEngineDto panoramaEngineDto) throws Exception;
-	
+
 	/**
 	 * 预览Scan
 	 * 
@@ -53,5 +53,5 @@ public interface IPanoramaEngineBiz {
 	 * @throws Exception
 	 */
 	public PanoramaEngineDto previewScan(PanoramaEngineDto panoramaEngineDto) throws Exception;
-	
+
 }

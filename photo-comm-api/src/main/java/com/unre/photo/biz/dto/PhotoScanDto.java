@@ -1,30 +1,20 @@
-package com.unre.photo.comm.dal.model;
+package com.unre.photo.biz.dto;
 
 import java.util.Date;
 
-public class PhotoScan {
+public class PhotoScanDto {
+
 	private Long id;
-
-	private Long memberId;
-
-	private Long btchNo;
-
-	private Integer title;
-
+	private Long member_id;
+	private Long btch_no;
+	private String title;
 	private String desc;
-
-	private String imagePath;
-
-	private String thumbImagePath;
-
+	private String image_path;
+	private String thumb_image_path;
 	private String status;
-
 	private Integer createBy;
-
 	private Date createTime;
-
 	private Integer updateBy;
-
 	private Date updateTime;
 
 	public Long getId() {
@@ -35,27 +25,27 @@ public class PhotoScan {
 		this.id = id;
 	}
 
-	public Long getMemberId() {
-		return memberId;
+	public Long getMember_id() {
+		return member_id;
 	}
 
-	public void setMemberId(Long memberId) {
-		this.memberId = memberId;
+	public void setMember_id(Long member_id) {
+		this.member_id = member_id;
 	}
 
-	public Long getBtchNo() {
-		return btchNo;
+	public Long getBtch_no() {
+		return btch_no;
 	}
 
-	public void setBtchNo(Long btchNo) {
-		this.btchNo = btchNo;
+	public void setBtch_no(Long btch_no) {
+		this.btch_no = btch_no;
 	}
 
-	public Integer getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(Integer title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
@@ -64,23 +54,23 @@ public class PhotoScan {
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc == null ? null : desc.trim();
+		this.desc = desc;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public String getImage_path() {
+		return image_path;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath == null ? null : imagePath.trim();
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
 	}
 
-	public String getThumbImagePath() {
-		return thumbImagePath;
+	public String getThumb_image_path() {
+		return thumb_image_path;
 	}
 
-	public void setThumbImagePath(String thumbImagePath) {
-		this.thumbImagePath = thumbImagePath == null ? null : thumbImagePath.trim();
+	public void setThumb_image_path(String thumb_image_path) {
+		this.thumb_image_path = thumb_image_path;
 	}
 
 	public String getStatus() {
@@ -88,7 +78,7 @@ public class PhotoScan {
 	}
 
 	public void setStatus(String status) {
-		this.status = status == null ? null : status.trim();
+		this.status = status;
 	}
 
 	public Integer getCreateBy() {
@@ -122,4 +112,5 @@ public class PhotoScan {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
 }

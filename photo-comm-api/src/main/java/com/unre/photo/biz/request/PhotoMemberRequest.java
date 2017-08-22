@@ -2,7 +2,6 @@ package com.unre.photo.biz.request;
 
 import com.unre.photo.biz.dto.PhotoMemberDto;
 
-
 @SuppressWarnings("serial")
 public class PhotoMemberRequest extends BaseRequest {
 

@@ -10,14 +10,14 @@ import java.io.Serializable;
 public class BaseRequest implements Serializable {
 
 	/** 签名 */
-    private String sign;
+	private String sign;
 
-    public String getSign() {
-        return sign;
-    }
+	public String getSign() {
+		return sign;
+	}
 
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
 
 }

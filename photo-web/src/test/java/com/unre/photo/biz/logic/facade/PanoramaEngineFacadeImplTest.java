@@ -18,14 +18,14 @@ import com.unre.photo.biz.response.PanoramaEngineResponse;
 @ContextConfiguration(locations = { "classpath:spring/photo_web_spring_test.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager")
 public class PanoramaEngineFacadeImplTest extends AbstractTransactionalJUnit4SpringContextTests {
-   
+
 	@Autowired
 	private IPanoramaEngineFacade panoramaEngineFacade;
-	
+
 	@Test
 	@SuppressWarnings("unused")
-	public void testGenerateScan(){
-		try{
+	public void testGenerateScan() {
+		try {
 			PanoramaEngineRequest request = new PanoramaEngineRequest();
 			PanoramaEngineDto peDto = new PanoramaEngineDto();
 			//peDto.setApiUrl("https://beta.benaco.com/api/beta/scans/new");
@@ -38,14 +38,14 @@ public class PanoramaEngineFacadeImplTest extends AbstractTransactionalJUnit4Spr
 			peDto.setFiles(files);
 			request.setPanoramaEngineDto(peDto);
 			PanoramaEngineResponse response = panoramaEngineFacade.generateScan(request);
-			
+
 			Assert.assertNotNull(response);
 
 			PanoramaEngineResponse response1 = panoramaEngineFacade.queryScanStatus(request);
-			
+
 			Assert.assertNotNull(response);
-			
-		}catch(Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

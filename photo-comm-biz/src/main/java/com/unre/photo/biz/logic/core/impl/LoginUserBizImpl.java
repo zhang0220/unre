@@ -1,6 +1,5 @@
 package com.unre.photo.biz.logic.core.impl;
 
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,13 +20,12 @@ public class LoginUserBizImpl implements ILoginUserBiz {
 
 	@Value("${tms.url:}")
 	private String tmsUrl;
-	
+
 	@Value("${tms.login.confirm:}")
 	private String tmsLoginConfirm;
 
 	@Override
-	public LoginUserResponse queryLoginUsers(LoginUserDto loginUserDto)
-			throws BusinessException {
+	public LoginUserResponse queryLoginUsers(LoginUserDto loginUserDto) throws BusinessException {
 		LOGGER.debug("------queryLoginUsers---------start");
 		LoginUserResponse loginUserResponse = new LoginUserResponse();
 		loginUserResponse.setLoginFlag(false);
@@ -48,12 +46,12 @@ public class LoginUserBizImpl implements ILoginUserBiz {
 					loginUserResponse.setLoginFlag(true);
 				}
 			}*/
-		}catch (Exception e) {
+		} catch (Exception e) {
 			/*Error error = new Error(AppConstants.QUERY_LOGIN_USER_ERROR_CODE, e.getMessage());
 			loginUserResponse.setError(error);
 			LOGGER.error(AppConstants.QUERY_LOGIN_USER_ERROR_CODE, e);*/
 		}
-		LOGGER.debug("------queryLoginUsers---------end:flag="+loginUserResponse.isLoginFlag());
+		LOGGER.debug("------queryLoginUsers---------end:flag=" + loginUserResponse.isLoginFlag());
 		return loginUserResponse;
 	}
 

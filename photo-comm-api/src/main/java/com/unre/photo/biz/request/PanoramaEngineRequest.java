@@ -4,7 +4,7 @@ import com.unre.photo.biz.dto.PanoramaEngineDto;
 
 @SuppressWarnings("serial")
 public class PanoramaEngineRequest extends BaseRequest {
-	
+
 	private PanoramaEngineDto panoramaEngineDto;
 
 	public PanoramaEngineDto getPanoramaEngineDto() {
@@ -14,6 +14,5 @@ public class PanoramaEngineRequest extends BaseRequest {
 	public void setPanoramaEngineDto(PanoramaEngineDto panoramaEngineDto) {
 		this.panoramaEngineDto = panoramaEngineDto;
 	}
-	
-	
+
 }

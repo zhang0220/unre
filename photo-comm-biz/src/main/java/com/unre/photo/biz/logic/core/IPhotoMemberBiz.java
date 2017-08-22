@@ -31,7 +31,6 @@ public interface IPhotoMemberBiz {
 	 */
 	public List<PhotoMemberDto> queryPhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException;
 
-
 	/**
 	 * 新增PhotoMember
 	 * 
@@ -60,7 +59,7 @@ public interface IPhotoMemberBiz {
 	 * @throws BusinessException
 	 */
 	public void deletePhotoMember(Long id) throws BusinessException;
-	
+
 	/**
 	 * 通过member_name和password登录
 	 * 
@@ -69,6 +68,6 @@ public interface IPhotoMemberBiz {
 	 * @return photoMemberDto -Dto
 	 * @throws BusinessException
 	 */
-	 public PhotoMemberDto queryLoginUsers(PhotoMemberDto photoMemberDto)throws BusinessException;
+	public PhotoMemberDto queryLoginUsers(PhotoMemberDto photoMemberDto) throws BusinessException;
 
 }

@@ -4,17 +4,17 @@ import java.util.List;
 import java.io.File;
 
 public class PanoramaEngineDto {
-    
+
 	private String apiBaseUrl;
-	
+
 	private String apiKey;
-	
+
 	private String scanId;
-	
+
 	private String title;
-	
+
 	private List<File> files;
-	
+
 	private String previewUrl;
 
 	public String getApiBaseUrl() {
@@ -64,7 +64,5 @@ public class PanoramaEngineDto {
 	public void setPreviewUrl(String previewUrl) {
 		this.previewUrl = previewUrl;
 	}
-	
-	
 
 }

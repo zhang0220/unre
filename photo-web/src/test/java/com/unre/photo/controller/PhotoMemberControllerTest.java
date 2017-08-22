@@ -17,8 +17,7 @@ public class PhotoMemberControllerTest extends BaseTest {
 		String json = "{\"photoMemberDto\": {\"id\": \"" + id + "\"}}";
 		String result = this.postRequest(urlSuffix, json);
 		Assert.assertNotNull(result);
-		BaseResponse res = (BaseResponse) JsonUtil.toObject(result,
-				PhotoMemberResponse.class);
+		BaseResponse res = (BaseResponse) JsonUtil.toObject(result, PhotoMemberResponse.class);
 		Assert.assertNull(res.getError());
 	}
 
@@ -29,8 +28,7 @@ public class PhotoMemberControllerTest extends BaseTest {
 		String json = "{\"photoMemberDto\": {\"memberNo\": \"" + memberNo + "\"}}";
 		String result = this.postRequest(urlSuffix, json);
 		Assert.assertNotNull(result);
-		BaseResponse res = (BaseResponse) JsonUtil.toObject(result,
-				PhotoMemberResponse.class);
+		BaseResponse res = (BaseResponse) JsonUtil.toObject(result, PhotoMemberResponse.class);
 		Assert.assertNull(res.getError());
 
 	}

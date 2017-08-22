@@ -8,9 +8,9 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class BaseResponse implements Serializable {
-    
+
 	private Error error = null;
-	
+
 	private String code;
 
 	private int page;
@@ -20,7 +20,6 @@ public class BaseResponse implements Serializable {
 	private int pageSize;
 
 	private int total;
-	
 
 	public Error getError() {
 		return error;
@@ -74,6 +73,7 @@ public class BaseResponse implements Serializable {
 			}
 		}
 	}
+
 	public void setPage(int page, int total, int pageSize) {
 		this.setPage(String.valueOf(page), total, pageSize);
 	}

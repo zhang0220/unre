@@ -37,7 +37,7 @@ public class MethodInvoke {
 			methodName = joinPoint.getSignature().getName();
 			fullMethodName = implClazzName + "." + methodName;
 
-//			LOGGER = LogFactory.getLog(implClazzName);
+			//			LOGGER = LogFactory.getLog(implClazzName);
 
 			LOGGER.debug(fullMethodName + " begin");
 

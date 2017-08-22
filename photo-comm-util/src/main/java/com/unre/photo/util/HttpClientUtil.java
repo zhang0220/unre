@@ -149,8 +149,7 @@ public class HttpClientUtil {
 		HttpClientResponse hcResponse = new HttpClientResponse();
 		try {
 			httpPost.setConfig(requestConfig);
-			StringEntity stringEntity = new StringEntity(json.toString(),
-					"UTF-8");// 解决中文乱码问题
+			StringEntity stringEntity = new StringEntity(json.toString(), "UTF-8");// 解决中文乱码问题
 			stringEntity.setContentEncoding("UTF-8");
 			stringEntity.setContentType("application/json");
 			httpPost.setEntity(stringEntity);
@@ -177,23 +176,20 @@ public class HttpClientUtil {
 		return hcResponse;
 	}
 
-	public static HttpClientResponse doPostMultipart(String apiUrl, String scanId,
-			List<File> fileList) throws Exception {
+	public static HttpClientResponse doPostMultipart(String apiUrl, String scanId, List<File> fileList)
+			throws Exception {
 		// InputStream inStream = null;
 		HttpClientResponse hcResponse = new HttpClientResponse();
 		try {
 			CloseableHttpClient httpClient = HttpClients.createDefault();
 			HttpPost httpPost = new HttpPost(apiUrl);
 			httpPost.setHeader("accept", "application/json");
-			MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder
-					.create();
-			multipartEntityBuilder.addTextBody("key",
-					"\"3c7c6941-2204-4ee7-a4b5-0981e0e6e09c\"",
+			MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
+			multipartEntityBuilder.addTextBody("key", "\"3c7c6941-2204-4ee7-a4b5-0981e0e6e09c\"",
 					ContentType.create("text/plain", Charset.forName("utf-8")));
 			if (fileList != null) {
 				for (int i = 0; i < fileList.size(); i++) {
-					multipartEntityBuilder.addBinaryBody("photo" + (i + 1),
-							fileList.get(i));
+					multipartEntityBuilder.addBinaryBody("photo" + (i + 1), fileList.get(i));
 				}
 			}
 
@@ -234,25 +230,20 @@ public class HttpClientUtil {
 	 * @return
 	 */
 	public static String doPostSSL(String apiUrl, Map<String, Object> params) {
-		CloseableHttpClient httpClient = HttpClients.custom()
-				.setSSLSocketFactory(createSSLConnSocketFactory())
-				.setConnectionManager(connMgr)
-				.setDefaultRequestConfig(requestConfig).build();
+		CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
+				.setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
 		HttpPost httpPost = new HttpPost(apiUrl);
 		CloseableHttpResponse response = null;
 		String httpStr = null;
 
 		try {
 			httpPost.setConfig(requestConfig);
-			List<NameValuePair> pairList = new ArrayList<NameValuePair>(
-					params.size());
+			List<NameValuePair> pairList = new ArrayList<NameValuePair>(params.size());
 			for (Map.Entry<String, Object> entry : params.entrySet()) {
-				NameValuePair pair = new BasicNameValuePair(entry.getKey(),
-						entry.getValue().toString());
+				NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry.getValue().toString());
 				pairList.add(pair);
 			}
-			httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset
-					.forName("utf-8")));
+			httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName("utf-8")));
 			response = httpClient.execute(httpPost);
 			int statusCode = response.getStatusLine().getStatusCode();
 			if (statusCode != HttpStatus.SC_OK) {
@@ -287,18 +278,15 @@ public class HttpClientUtil {
 	 * @return
 	 */
 	public static String doPostSSL(String apiUrl, Object json) {
-		CloseableHttpClient httpClient = HttpClients.custom()
-				.setSSLSocketFactory(createSSLConnSocketFactory())
-				.setConnectionManager(connMgr)
-				.setDefaultRequestConfig(requestConfig).build();
+		CloseableHttpClient httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory())
+				.setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
 		HttpPost httpPost = new HttpPost(apiUrl);
 		CloseableHttpResponse response = null;
 		String httpStr = null;
 
 		try {
 			httpPost.setConfig(requestConfig);
-			StringEntity stringEntity = new StringEntity(json.toString(),
-					"UTF-8");// 解决中文乱码问题
+			StringEntity stringEntity = new StringEntity(json.toString(), "UTF-8");// 解决中文乱码问题
 			stringEntity.setContentEncoding("UTF-8");
 			stringEntity.setContentType("application/json");
 			httpPost.setEntity(stringEntity);
@@ -334,37 +322,31 @@ public class HttpClientUtil {
 	private static SSLConnectionSocketFactory createSSLConnSocketFactory() {
 		SSLConnectionSocketFactory sslsf = null;
 		try {
-			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(
-					null, new TrustStrategy() {
+			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
 
-						public boolean isTrusted(X509Certificate[] chain,
-								String authType) throws CertificateException {
-							return true;
-						}
-					}).build();
-			sslsf = new SSLConnectionSocketFactory(sslContext,
-					new X509HostnameVerifier() {
+				public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+					return true;
+				}
+			}).build();
+			sslsf = new SSLConnectionSocketFactory(sslContext, new X509HostnameVerifier() {
 
-						@Override
-						public boolean verify(String arg0, SSLSession arg1) {
-							return true;
-						}
+				@Override
+				public boolean verify(String arg0, SSLSession arg1) {
+					return true;
+				}
 
-						@Override
-						public void verify(String host, SSLSocket ssl)
-								throws IOException {
-						}
+				@Override
+				public void verify(String host, SSLSocket ssl) throws IOException {
+				}
 
-						@Override
-						public void verify(String host, X509Certificate cert)
-								throws SSLException {
-						}
+				@Override
+				public void verify(String host, X509Certificate cert) throws SSLException {
+				}
 
-						@Override
-						public void verify(String host, String[] cns,
-								String[] subjectAlts) throws SSLException {
-						}
-					});
+				@Override
+				public void verify(String host, String[] cns, String[] subjectAlts) throws SSLException {
+				}
+			});
 		} catch (GeneralSecurityException e) {
 			e.printStackTrace();
 		}

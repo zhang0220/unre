@@ -35,7 +35,7 @@ public class BaseController<T> {
 	private @ResponseBody BaseResponse exceptionHandler(Exception e) {
 		BaseResponse response = new BaseResponse();
 		response.setError(new Error(e.getMessage(), e.getCause().toString()));
-		logger.error(e.getMessage(),e.getCause());
+		logger.error(e.getMessage(), e.getCause());
 		return response;
 	}
 }

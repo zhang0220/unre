@@ -11,15 +11,15 @@ import com.unre.photo.biz.dto.LoginUserDto;
  */
 @SuppressWarnings("serial")
 public class LoginUserResponse extends BaseResponse {
-	
+
 	private LoginUserDto loginUserDto;
-	
+
 	private List<LoginUserDto> loginUserDtoList;
-	
+
 	private boolean loginFlag;
-	
-	public LoginUserDto getFirst(){
-		if(null != loginUserDtoList && loginUserDtoList.size()>0){
+
+	public LoginUserDto getFirst() {
+		if (null != loginUserDtoList && loginUserDtoList.size() > 0) {
 			return loginUserDtoList.get(1);
 		}
 		return null;

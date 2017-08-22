@@ -35,7 +35,7 @@ public class MapToBeanUtil {
 					Class<?> propertyType = descriptor.getPropertyType();
 					if (propertyType.getName().equals("java.util.Date")) {
 						String dateStr = (String) map.get(propertyName);
-						if(StringUtils.isNotBlank(dateStr)){
+						if (StringUtils.isNotBlank(dateStr)) {
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 							value = sdf.parse(dateStr);
 							LOGGER.info(descriptor.getClass());

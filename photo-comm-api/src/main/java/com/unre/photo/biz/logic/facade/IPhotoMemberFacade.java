@@ -25,7 +25,6 @@ public interface IPhotoMemberFacade {
 	 */
 	public void deletePhotoMember(Long id) throws Exception;
 
-
 	/**
 	 * 更新PhotoMember
 	 * 

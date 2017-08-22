@@ -16,7 +16,7 @@ import com.unre.photo.biz.logic.core.ILoginUserBiz;
  */
 @Service("loginUserFacade")
 public class LoginUserFacadeImpl implements ILoginUserFacade {
-	
+
 	@Autowired
 	private ILoginUserBiz loginUserBiz;
 
@@ -26,7 +26,7 @@ public class LoginUserFacadeImpl implements ILoginUserFacade {
 		boolean loginFlag = queryLoginUsers.isLoginFlag();
 		LoginUserResponse response = new LoginUserResponse();
 		response.setLoginFlag(loginFlag);
-		if(!loginFlag){
+		if (!loginFlag) {
 			Error error = new Error(loginUserRequest.getLoginUserDto().getSubjectId(), "用户未登录");
 			response.setError(error);
 		}

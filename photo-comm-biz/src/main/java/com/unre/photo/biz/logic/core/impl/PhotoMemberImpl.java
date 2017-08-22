@@ -25,15 +25,12 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 	private static final Log LOGGER = LogFactory.getLog(PhotoMemberImpl.class);
 
 	@Override
-	public PhotoMemberDto findPhotoMemberById(Long photoMemberId)
-			throws BusinessException {
+	public PhotoMemberDto findPhotoMemberById(Long photoMemberId) throws BusinessException {
 		PhotoMemberDto photoMemberDto = null;
 
 		try {
-			PhotoMember photoMember = photoMemberMapper
-					.selectByPrimaryKey(photoMemberId);
-			photoMemberDto = ModelUtil.modelToDto(photoMember,
-					PhotoMemberDto.class);
+			PhotoMember photoMember = photoMemberMapper.selectByPrimaryKey(photoMemberId);
+			photoMemberDto = ModelUtil.modelToDto(photoMember, PhotoMemberDto.class);
 		} catch (Exception e) {
 			LOGGER.error("err", e);
 			throw new BusinessException("err", "err");
@@ -42,28 +39,24 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 	}
 
 	@Override
-	public List<PhotoMemberDto> queryPhotoMember(PhotoMemberDto photoMemberDto)
-			throws BusinessException {
+	public List<PhotoMemberDto> queryPhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException {
 		List<PhotoMemberDto> photoMemberDtoList = new ArrayList<PhotoMemberDto>();
 		try {
-			PhotoMember photoMember = ModelUtil.dtoToModel(photoMemberDto,
-					PhotoMember.class);
-			List<PhotoMember> photoMemberList = photoMemberMapper
-					.selectBySelective(photoMember);
+			PhotoMember photoMember = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
+			List<PhotoMember> photoMemberList = photoMemberMapper.selectBySelective(photoMember);
 			if (!CollectionUtils.isEmpty(photoMemberList)) {
 				for (PhotoMember p : photoMemberList) {
-					photoMemberDtoList.add(ModelUtil.modelToDto(p,
-							PhotoMemberDto.class));
+					photoMemberDtoList.add(ModelUtil.modelToDto(p, PhotoMemberDto.class));
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			
-		/*	 LOGGER.error(AppConstants.QUERY_FAIL_PLAN_ERROR_MESSAGE, e);
-			 throw new
-			 BusinessException(AppConstants.QUERY_FAIL_PLAN_ERROR_CODE,
-			 AppConstants.QUERY_FAIL_PLAN_ERROR_MESSAGE);*/
-			 
+
+			/*	 LOGGER.error(AppConstants.QUERY_FAIL_PLAN_ERROR_MESSAGE, e);
+				 throw new
+				 BusinessException(AppConstants.QUERY_FAIL_PLAN_ERROR_CODE,
+				 AppConstants.QUERY_FAIL_PLAN_ERROR_MESSAGE);*/
+
 		}
 		return photoMemberDtoList;
 	}
@@ -71,12 +64,12 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 	// 注册
 	@Override
 	public PhotoMemberDto addPhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException {
-		PhotoMemberDto photoRes=null;
+		PhotoMemberDto photoRes = null;
 		try {
 			PhotoMember photomember = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
 			photoMemberMapper.insertSelective(photomember);
-		    Long id =photomember.getId();
-		    photoRes = findPhotoMemberById(id);
+			Long id = photomember.getId();
+			photoRes = findPhotoMemberById(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			LOGGER.error("err", e);
@@ -86,16 +79,12 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 
 	}
 
-
-
 	// 登录
 	@Override
-	public PhotoMemberDto queryLoginUsers(PhotoMemberDto photoMemberDto)
-			throws BusinessException {
+	public PhotoMemberDto queryLoginUsers(PhotoMemberDto photoMemberDto) throws BusinessException {
 		PhotoMember photomember;
 		try {
-			PhotoMember photoMembers = ModelUtil.dtoToModel(photoMemberDto,
-					PhotoMember.class);
+			PhotoMember photoMembers = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
 			photomember = photoMemberMapper.queryLoginUsers(photoMembers);
 			photoMemberDto = ModelUtil.modelToDto(photomember, PhotoMemberDto.class);
 		} catch (Exception e) {
@@ -105,9 +94,9 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 
 		return photoMemberDto;
 	}
+
 	@Override
-	public void updatePhotoMember(PhotoMemberDto photoMemberDto)
-			throws BusinessException {
+	public void updatePhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException {
 		// TODO Auto-generated method stub
 
 	}

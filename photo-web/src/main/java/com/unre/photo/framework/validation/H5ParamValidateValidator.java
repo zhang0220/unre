@@ -161,7 +161,7 @@ public class H5ParamValidateValidator implements IValidator {
 			}
 		} catch (Exception e) {
 			vH5Response.setError(new Error("validateError", "未知错误"));
-			LOGGER.error("validateError",e);
+			LOGGER.error("validateError", e);
 		}
 		return vH5Response;
 	}

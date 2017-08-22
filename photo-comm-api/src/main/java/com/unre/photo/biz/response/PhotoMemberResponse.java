@@ -6,9 +6,9 @@ import com.unre.photo.biz.dto.PhotoMemberDto;
 
 @SuppressWarnings("serial")
 public class PhotoMemberResponse extends BaseResponse {
-	
-    private PhotoMemberDto photoMemberDto;
-	
+
+	private PhotoMemberDto photoMemberDto;
+
 	private List<PhotoMemberDto> photoMemberDtoList;
 
 	public PhotoMemberDto getPhotoMemberDto() {

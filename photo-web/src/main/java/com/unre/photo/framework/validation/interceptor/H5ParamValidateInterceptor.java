@@ -11,7 +11,6 @@ import com.unre.photo.framework.servlet.ResettableStreamHttpServletRequest;
 import com.unre.photo.framework.validation.IValidator;
 import com.unre.photo.util.JsonUtil;
 
-
 /**
  * 根据Swagger的@ApiImplicitParam注解中的required的值来判断请求中的参数是否必填
  * 另外，使用Swagger注解@ApiImplicitParam的时候， @ApiImplicitParam的name的值必须与xxxDto中的对应属性名相同，
@@ -25,12 +24,11 @@ public class H5ParamValidateInterceptor extends HandlerInterceptorAdapter {
 
 	private IValidator validator;
 
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
 		ValidationH5Response val5Response = null;
 		boolean flg = true;
-		
+
 		response.setContentType("application/json; charset=utf-8");
 
 		val5Response = validator.validate((ResettableStreamHttpServletRequest) request, handler);
@@ -43,11 +41,11 @@ public class H5ParamValidateInterceptor extends HandlerInterceptorAdapter {
 		//request.getSession().setAttribute("USERID", queryCurrentUserId(request));
 		return flg;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private long queryCurrentUserId(HttpServletRequest request) {
 		int userId = 0;
-        
+
 		return userId;
 	}
 

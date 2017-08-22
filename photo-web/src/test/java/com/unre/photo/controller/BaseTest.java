@@ -16,7 +16,7 @@ public class BaseTest {
 
 	public static final String url_prefix = "http://127.0.0.1:8080/photo-web/";
 
-	public static String postRequest(String urlSuffix,String json) {
+	public static String postRequest(String urlSuffix, String json) {
 		System.out.println("url=========" + url_prefix + urlSuffix);
 		System.out.println("json==========" + json);
 		CloseableHttpClient httpclient = HttpClients.createDefault();

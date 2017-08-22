@@ -58,7 +58,7 @@ public abstract class ABaseRedis<K, V> {
 		});
 		return v;
 	}
-	
+
 	protected long del(final K k) {
 		long result = (long) redisTemplate.execute(new RedisCallback<Long>() {
 			public Long doInRedis(RedisConnection connection) throws DataAccessException {

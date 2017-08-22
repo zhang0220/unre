@@ -17,17 +17,15 @@ public class UserTokenAccessValidator implements IValidator {
 	private IPhotoMemberFacade photoMemberFacade;
 
 	@Override
-	public ValidationH5Response validate(
-			ResettableStreamHttpServletRequest request, Object handler) {
+	public ValidationH5Response validate(ResettableStreamHttpServletRequest request, Object handler) {
 		ValidationH5Response vH5Response = new ValidationH5Response();
 		//TODO 
 		return vH5Response;
 	}
-	
+
 	public IPhotoMemberFacade getPhotoMemberFacade() {
 		return photoMemberFacade;
 	}
-
 
 	public void setPhotoMemberFacade(IPhotoMemberFacade photoMemberFacade) {
 		this.photoMemberFacade = photoMemberFacade;

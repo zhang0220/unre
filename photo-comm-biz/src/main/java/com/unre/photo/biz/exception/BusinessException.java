@@ -3,10 +3,11 @@ package com.unre.photo.biz.exception;
 /**
  * 业务异常类
  */
-@SuppressWarnings({"serial"})
+@SuppressWarnings({ "serial" })
 public class BusinessException extends Exception {
-	
+
 	private String code;
+
 	/**
 	 * 参数构造器
 	 * 

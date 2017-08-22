@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.unre.photo.framework.servlet.ResettableStreamHttpServletRequest;
 
-public class RequestBodyCachedFilter implements Filter{
+public class RequestBodyCachedFilter implements Filter {
 
 	public void destroy() {
 		// Nothing to do
 	}
-	
+
 	public void init(FilterConfig arg0) throws ServletException {
 		// Nothing to do
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
+			ServletException {
 		ResettableStreamHttpServletRequest wrappedRequest = new ResettableStreamHttpServletRequest(
 				(HttpServletRequest) request);
 		chain.doFilter(wrappedRequest, response);

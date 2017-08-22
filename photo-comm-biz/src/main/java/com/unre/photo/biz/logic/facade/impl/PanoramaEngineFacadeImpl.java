@@ -19,8 +19,7 @@ public class PanoramaEngineFacadeImpl implements IPanoramaEngineFacade {
 
 	@SuppressWarnings("unused")
 	@Override
-	public PanoramaEngineResponse generateScan(PanoramaEngineRequest request)
-			throws Exception {
+	public PanoramaEngineResponse generateScan(PanoramaEngineRequest request) throws Exception {
 		PanoramaEngineResponse response = new PanoramaEngineResponse();
 		try {
 			// 1.创建scan id
@@ -30,7 +29,7 @@ public class PanoramaEngineFacadeImpl implements IPanoramaEngineFacade {
 			panoramaEngineBiz.addPhotos(panoramaEngineDto);
 			// 3.开始处理
 			boolean retFlg = panoramaEngineBiz.startProcessing(panoramaEngineDto);
-			if(retFlg){
+			if (retFlg) {
 				response.setCode(AppConstants.STATUS_SUCCESS);
 			} else {
 				response.setCode(AppConstants.STATUS_FAIL);
@@ -46,8 +45,7 @@ public class PanoramaEngineFacadeImpl implements IPanoramaEngineFacade {
 	}
 
 	@Override
-	public PanoramaEngineResponse queryScanStatus(PanoramaEngineRequest request)
-			throws Exception {
+	public PanoramaEngineResponse queryScanStatus(PanoramaEngineRequest request) throws Exception {
 		PanoramaEngineResponse retResponse = new PanoramaEngineResponse();
 		PanoramaEngineDto panoramaEngineDto = panoramaEngineBiz.queryScanStatus(request.getPanoramaEngineDto());
 		retResponse.setPanoramaEngineDto(panoramaEngineDto);

@@ -4,7 +4,7 @@ import com.unre.photo.biz.request.PanoramaEngineRequest;
 import com.unre.photo.biz.response.PanoramaEngineResponse;
 
 public interface IPanoramaEngineFacade {
-    
+
 	/**
 	 * 新增benaco scan
 	 * 
@@ -14,7 +14,7 @@ public interface IPanoramaEngineFacade {
 	 * @throws Exception
 	 */
 	PanoramaEngineResponse generateScan(PanoramaEngineRequest request) throws Exception;
-	
+
 	/**
 	 * 上传benaco scan
 	 * 
@@ -24,5 +24,5 @@ public interface IPanoramaEngineFacade {
 	 * @throws Exception
 	 */
 	PanoramaEngineResponse queryScanStatus(PanoramaEngineRequest request) throws Exception;
-	
+
 }

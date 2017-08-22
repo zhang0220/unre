@@ -9,27 +9,29 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class DefaultInteceptor extends HandlerInterceptorAdapter {
 
 	@SuppressWarnings("all")
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
 		String uri = request.getRequestURI().replace(request.getContextPath(), "");
 		super.afterCompletion(request, response, handler, ex);
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
 		super.postHandle(request, response, handler, modelAndView);
 	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//		WebUtils.setRequest(request);
-//		request.setAttribute("now", new Date());
-//		request.setAttribute("URL", FreemarkerUtils.getStaticTemplateModel(URLUtils.class));
-//		request.setAttribute("String", FreemarkerUtils.getStaticTemplateModel(StringUtils.class));
-//		request.setAttribute("req", new Arequest(request));
-//		request.setAttribute("Dict", FreemarkerUtils.getStaticTemplateModel(DictCache.class));
-//		request.setAttribute("File", fileReferDomain);
-//		request.setAttribute("App", appContext);
-//		request.setAttribute("Version", "1.0");
+		//		WebUtils.setRequest(request);
+		//		request.setAttribute("now", new Date());
+		//		request.setAttribute("URL", FreemarkerUtils.getStaticTemplateModel(URLUtils.class));
+		//		request.setAttribute("String", FreemarkerUtils.getStaticTemplateModel(StringUtils.class));
+		//		request.setAttribute("req", new Arequest(request));
+		//		request.setAttribute("Dict", FreemarkerUtils.getStaticTemplateModel(DictCache.class));
+		//		request.setAttribute("File", fileReferDomain);
+		//		request.setAttribute("App", appContext);
+		//		request.setAttribute("Version", "1.0");
 
 		// ****************************************************
 		String[] uris = request.getRequestURI().replaceFirst(request.getContextPath(), "").split("/");

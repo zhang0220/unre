@@ -5,16 +5,16 @@ import java.util.Date;
 public class PhotoMemberDto {
 
 	private Long id;
-	
-    private String memberNo;
-    
+
+	private String memberNo;
+
 	private String memberName;
-	
+
 	private String password;
-	
+
 	private String company;
-	
-    private String province;
+
+	private String province;
 
 	private String city;
 

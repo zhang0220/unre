@@ -15,14 +15,15 @@ import com.unre.photo.biz.response.PanoramaEngineResponse;
 
 @Controller
 @RequestMapping("/engine")
-public class PanoramaEngineController extends BaseController<PanoramaEngineController>{
-    
+public class PanoramaEngineController extends BaseController<PanoramaEngineController> {
+
 	@Autowired
 	private IPanoramaEngineFacade panoramaEngineFacade;
 
 	@ResponseBody
 	@RequestMapping(value = "/queryPhotoMember.do", method = RequestMethod.POST)
-	public PanoramaEngineResponse createScan(@RequestBody PanoramaEngineRequest request, HttpServletRequest servletRequest) throws Exception {
+	public PanoramaEngineResponse createScan(@RequestBody PanoramaEngineRequest request,
+			HttpServletRequest servletRequest) throws Exception {
 		return panoramaEngineFacade.generateScan(request);
 	}
 }
