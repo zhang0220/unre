@@ -9,7 +9,7 @@ public class PanoramaEngineDto {
 
 	private String apiKey;
 
-	private String scanId;
+	private String benacoScanId;
 
 	private String title;
 
@@ -33,12 +33,12 @@ public class PanoramaEngineDto {
 		this.apiKey = apiKey;
 	}
 
-	public String getScanId() {
-		return scanId;
+	public String getBenacoScanId() {
+		return benacoScanId;
 	}
 
-	public void setScanId(String scanId) {
-		this.scanId = scanId;
+	public void setBenacoScanId(String benacoScanId) {
+		this.benacoScanId = benacoScanId;
 	}
 
 	public String getTitle() {

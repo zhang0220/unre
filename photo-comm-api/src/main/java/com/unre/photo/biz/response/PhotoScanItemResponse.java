@@ -1,0 +1,28 @@
+package com.unre.photo.biz.response;
+
+import java.util.List;
+
+import com.unre.photo.biz.dto.PhotoScanItemDto;
+
+public class PhotoScanItemResponse {
+	private PhotoScanItemDto photoScanItemDto;
+
+	private List<PhotoScanItemDto> photoScanItemDtoList;
+
+	public PhotoScanItemDto getPhotoScanItemDto() {
+		return photoScanItemDto;
+	}
+
+	public void setPhotoScanItemDto(PhotoScanItemDto photoScanItemDto) {
+		this.photoScanItemDto = photoScanItemDto;
+	}
+
+	public List<PhotoScanItemDto> getPhotoScanItemDtoList() {
+		return photoScanItemDtoList;
+	}
+
+	public void setPhotoScanItemDtoList(List<PhotoScanItemDto> photoScanItemDtoList) {
+		this.photoScanItemDtoList = photoScanItemDtoList;
+	}
+
+}

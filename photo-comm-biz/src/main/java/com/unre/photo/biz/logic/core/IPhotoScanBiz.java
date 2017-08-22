@@ -1,5 +1,6 @@
 package com.unre.photo.biz.logic.core;
 
+import java.io.File;
 import java.util.List;
 
 import com.unre.photo.biz.dto.PhotoScanDto;
@@ -51,6 +52,16 @@ public interface IPhotoScanBiz {
 	public void updatePhotoScan(PhotoScanDto photoScanDto) throws BusinessException;
 
 	/**
+	 * 更新PhotoScan
+	 * 
+	 * @param PhotoScanDto --要更新的PhotoScanDto
+	 * 
+	 * @return boolean
+	 * @throws BusinessException
+	 */
+	public void updatePhotoScanByBenacoId(PhotoScanDto photoScanDto) throws BusinessException;
+	
+	/**
 	 * 删除PhotoScan
 	 * 
 	 * @param id --要删除的PhotoScan ID
@@ -59,5 +70,16 @@ public interface IPhotoScanBiz {
 	 * @throws BusinessException
 	 */
 	public void deletePhotoScan(Long id) throws BusinessException;
+	
+	/**
+	 * 保存已经成功上传至benaco的图片
+	 * 
+	 * @param benacoScanId
+	 * @param imageFiles --要保存的文件
+	 * 
+	 * @return boolean 
+	 * @throws BusinessException
+	 */
+	public boolean saveUploadedImages(String benacoScanId,List<File> imageFiles) throws BusinessException;
 
 }

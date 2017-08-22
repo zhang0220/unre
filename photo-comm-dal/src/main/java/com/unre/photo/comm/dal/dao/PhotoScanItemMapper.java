@@ -1,5 +1,7 @@
 package com.unre.photo.comm.dal.dao;
 
+import java.util.List;
+
 import com.unre.photo.comm.dal.model.PhotoScanItem;
 
 public interface PhotoScanItemMapper {
@@ -14,4 +16,7 @@ public interface PhotoScanItemMapper {
 	int updateByPrimaryKeySelective(PhotoScanItem record);
 
 	int updateByPrimaryKey(PhotoScanItem record);
+	
+	// --------------------------------
+	List<PhotoScanItem> selectBySelective(PhotoScanItem record);
 }

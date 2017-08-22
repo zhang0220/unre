@@ -119,4 +119,32 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <!-- ==================自定义查询 ======================= -->
+	<select id="selectBySelective" resultMap="BaseResultMap"
+		parameterType="com.unre.photo.comm.dal.model.PhotoScanItem">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_photo_scan_item
+		where 1=1
+		<if test="memberName != null">
+			and scan_id = #{scanId,jdbcType=BIGINT}
+		</if>
+		<if test="memberNo != null">
+			and image_path = #{memberNo,jdbcType=VARCHAR}
+		</if>
+		<if test="password != null">
+			and thumb_image_path = #{password,jdbcType=VARCHAR}
+		</if>
+		<if test="company != null">
+			and create_by = #{company,jdbcType=INTEGER}
+		</if>
+	
+		<if test="city != null">
+			and update_by = #{city,jdbcType=INTEGER}
+		</if>
+
+		order by create_time desc
+	</select>
+	
 </mapper>

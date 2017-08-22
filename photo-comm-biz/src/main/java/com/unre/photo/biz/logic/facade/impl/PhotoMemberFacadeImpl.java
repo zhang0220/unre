@@ -62,7 +62,7 @@ public class PhotoMemberFacadeImpl implements IPhotoMemberFacade {
 			response.setPhotoMemberDto(photoMemberDto);
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.setCode(AppConstants.STATUS_FAIL);
+			response.setCode(AppConstants.FAIL_CODE);
 			Error error = new Error();
 			error.setCode("001");
 			error.setMessage("系统异常");
@@ -82,7 +82,7 @@ public class PhotoMemberFacadeImpl implements IPhotoMemberFacade {
 			response.setPhotoMemberDto(photoMemberDto);
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.setCode(AppConstants.STATUS_FAIL);
+			response.setCode(AppConstants.FAIL_CODE);
 			Error error = new Error();
 			error.setCode("001");
 			error.setMessage("系统异常");

@@ -3,123 +3,113 @@ package com.unre.photo.comm.dal.model;
 import java.util.Date;
 
 public class PhotoScan {
-	private Long id;
+    private Long id;
 
-	private Long memberId;
+    private String benacoScanId;
 
-	private Long btchNo;
+    private Long memberId;
 
-	private Integer title;
+    private Long btchNo;
 
-	private String desc;
+    private Integer title;
 
-	private String imagePath;
+    private String desc;
 
-	private String thumbImagePath;
+    private String status;
 
-	private String status;
+    private Integer createBy;
 
-	private Integer createBy;
+    private Date createTime;
 
-	private Date createTime;
+    private Integer updateBy;
 
-	private Integer updateBy;
+    private Date updateTime;
 
-	private Date updateTime;
+    public Long getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public String getBenacoScanId() {
+        return benacoScanId;
+    }
 
-	public Long getMemberId() {
-		return memberId;
-	}
+    public void setBenacoScanId(String benacoScanId) {
+        this.benacoScanId = benacoScanId == null ? null : benacoScanId.trim();
+    }
 
-	public void setMemberId(Long memberId) {
-		this.memberId = memberId;
-	}
+    public Long getMemberId() {
+        return memberId;
+    }
 
-	public Long getBtchNo() {
-		return btchNo;
-	}
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
+    }
 
-	public void setBtchNo(Long btchNo) {
-		this.btchNo = btchNo;
-	}
+    public Long getBtchNo() {
+        return btchNo;
+    }
 
-	public Integer getTitle() {
-		return title;
-	}
+    public void setBtchNo(Long btchNo) {
+        this.btchNo = btchNo;
+    }
 
-	public void setTitle(Integer title) {
-		this.title = title;
-	}
+    public Integer getTitle() {
+        return title;
+    }
 
-	public String getDesc() {
-		return desc;
-	}
+    public void setTitle(Integer title) {
+        this.title = title;
+    }
 
-	public void setDesc(String desc) {
-		this.desc = desc == null ? null : desc.trim();
-	}
+    public String getDesc() {
+        return desc;
+    }
 
-	public String getImagePath() {
-		return imagePath;
-	}
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
+    }
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath == null ? null : imagePath.trim();
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getThumbImagePath() {
-		return thumbImagePath;
-	}
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
 
-	public void setThumbImagePath(String thumbImagePath) {
-		this.thumbImagePath = thumbImagePath == null ? null : thumbImagePath.trim();
-	}
+    public Integer getCreateBy() {
+        return createBy;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setCreateBy(Integer createBy) {
+        this.createBy = createBy;
+    }
 
-	public void setStatus(String status) {
-		this.status = status == null ? null : status.trim();
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public Integer getCreateBy() {
-		return createBy;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public void setCreateBy(Integer createBy) {
-		this.createBy = createBy;
-	}
+    public Integer getUpdateBy() {
+        return updateBy;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setUpdateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public Date getUpdateTime() {
+        return updateTime;
+    }
 
-	public Integer getUpdateBy() {
-		return updateBy;
-	}
-
-	public void setUpdateBy(Integer updateBy) {
-		this.updateBy = updateBy;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 }

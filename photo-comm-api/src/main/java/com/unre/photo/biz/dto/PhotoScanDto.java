@@ -6,6 +6,7 @@ public class PhotoScanDto {
 
 	private Long id;
 	private Long member_id;
+	private String benacoScanId;
 	private Long btch_no;
 	private String title;
 	private String desc;
@@ -23,6 +24,14 @@ public class PhotoScanDto {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getBenacoScanId() {
+		return benacoScanId;
+	}
+
+	public void setBenacoScanId(String benacoScanId) {
+		this.benacoScanId = benacoScanId;
 	}
 
 	public Long getMember_id() {
