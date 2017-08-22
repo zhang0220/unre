@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.unre.photo.comm.dal.dao.PhotoScanMapper" >
+  <resultMap id="BaseResultMap" type="com.unre.photo.comm.dal.model.PhotoScan" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="btch_no" property="btchNo" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="INTEGER" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="image_path" property="imagePath" jdbcType="VARCHAR" />
+    <result column="thumb_image_path" property="thumbImagePath" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="create_by" property="createBy" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, member_id, btch_no, title, desc, image_path, thumb_image_path, status, create_by, 
+    create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_photo_scan
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tbl_photo_scan
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.unre.photo.comm.dal.model.PhotoScan" useGeneratedKeys="true" keyProperty="id" >
+    insert into tbl_photo_scan (member_id, btch_no, title, 
+      desc, image_path, thumb_image_path, 
+      status, create_by, create_time, 
+      update_by, update_time)
+    values (#{memberId,jdbcType=BIGINT}, #{btchNo,jdbcType=BIGINT}, #{title,jdbcType=INTEGER}, 
+      #{desc,jdbcType=VARCHAR}, #{imagePath,jdbcType=VARCHAR}, #{thumbImagePath,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.unre.photo.comm.dal.model.PhotoScan" useGeneratedKeys="true" keyProperty="id" >
+    insert into tbl_photo_scan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="btchNo != null" >
+        btch_no,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+      <if test="imagePath != null" >
+        image_path,
+      </if>
+      <if test="thumbImagePath != null" >
+        thumb_image_path,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="memberId != null" >
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="btchNo != null" >
+        #{btchNo,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null" >
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbImagePath != null" >
+        #{thumbImagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.unre.photo.comm.dal.model.PhotoScan" >
+    update tbl_photo_scan
+    <set >
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="btchNo != null" >
+        btch_no = #{btchNo,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null" >
+        image_path = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbImagePath != null" >
+        thumb_image_path = #{thumbImagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.unre.photo.comm.dal.model.PhotoScan" >
+    update tbl_photo_scan
+    set member_id = #{memberId,jdbcType=BIGINT},
+      btch_no = #{btchNo,jdbcType=BIGINT},
+      title = #{title,jdbcType=INTEGER},
+      desc = #{desc,jdbcType=VARCHAR},
+      image_path = #{imagePath,jdbcType=VARCHAR},
+      thumb_image_path = #{thumbImagePath,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
