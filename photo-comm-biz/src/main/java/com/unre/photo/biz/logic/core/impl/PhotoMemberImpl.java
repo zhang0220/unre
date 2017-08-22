@@ -70,10 +70,14 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 			photoMemberMapper.insertSelective(photomember);
 			Long id = photomember.getId();
 			photoRes = findPhotoMemberById(id);
+			if (photoRes == null) {
+				throw new BusinessException(AppConstants.QUERY_ADD_USER_ERROR_CODE,
+						AppConstants.QUERY_ADD_USER_ERROR_MESSAGE);
+			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			LOGGER.error("err", e);
-			throw new BusinessException("err", "err");
+			LOGGER.error(AppConstants.QUERY_ADD_USER_ERROR_CODE, e);
+			throw new BusinessException(AppConstants.QUERY_ADD_USER_ERROR_CODE,
+					AppConstants.QUERY_ADD_USER_ERROR_MESSAGE);
 		}
 		return photoRes;
 
@@ -86,12 +90,16 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 		try {
 			PhotoMember photoMembers = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
 			photomember = photoMemberMapper.queryLoginUsers(photoMembers);
+			if (photomember == null) {
+				throw new BusinessException(AppConstants.QUERY_LOGIN_USER_ERROR_CODE,
+						AppConstants.QUERY_LOGIN_USER_ERROR_MESSAGE);
+			}
 			photoMemberDto = ModelUtil.modelToDto(photomember, PhotoMemberDto.class);
 		} catch (Exception e) {
-			LOGGER.error("err", e);
-			throw new BusinessException("err", "err");
+			LOGGER.error(AppConstants.QUERY_LOGIN_USER_ERROR_CODE, e);
+			throw new BusinessException(AppConstants.QUERY_LOGIN_USER_ERROR_CODE,
+					AppConstants.QUERY_LOGIN_USER_ERROR_MESSAGE);
 		}
-
 		return photoMemberDto;
 	}
 

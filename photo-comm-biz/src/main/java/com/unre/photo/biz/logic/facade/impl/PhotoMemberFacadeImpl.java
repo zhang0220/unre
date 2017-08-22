@@ -56,18 +56,9 @@ public class PhotoMemberFacadeImpl implements IPhotoMemberFacade {
 	@Override
 	public PhotoMemberResponse login(PhotoMemberRequest request) throws Exception {
 		PhotoMemberResponse response = new PhotoMemberResponse();
-		try {
-			response = new PhotoMemberResponse();
-			PhotoMemberDto photoMemberDto = photoMemberBiz.queryLoginUsers(request.getPhotoMemberDto());
-			response.setPhotoMemberDto(photoMemberDto);
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.setCode(AppConstants.FAIL_CODE);
-			Error error = new Error();
-			error.setCode("001");
-			error.setMessage("系统异常");
-			e.printStackTrace();
-		}
+		response = new PhotoMemberResponse();
+		PhotoMemberDto photoMemberDto = photoMemberBiz.queryLoginUsers(request.getPhotoMemberDto());
+		response.setPhotoMemberDto(photoMemberDto);
 		return response;
 
 	}
