@@ -13,7 +13,7 @@ public class PhotoScan {
 
     private Integer title;
 
-    private String desc;
+    private String description;
 
     private String status;
 
@@ -24,6 +24,8 @@ public class PhotoScan {
     private Integer updateBy;
 
     private Date updateTime;
+
+    private Long version;
 
     public Long getId() {
         return id;
@@ -65,12 +67,12 @@ public class PhotoScan {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     public String getStatus() {
@@ -111,5 +113,13 @@ public class PhotoScan {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }
