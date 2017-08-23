@@ -57,7 +57,11 @@ public final static String SYSTEM_ERROR_CODE = "10000001"; //系统异常
 	
 	public final static String SCAN_SAVE_IMAGE_ERROR_CODE = "10050005";
 	public final static String SCAN_SAVE_IMAGE_ERROR_MESSAGE = "保存图片信息失败!";
-
+	
+	//Photo Scan Item
+	
+	public final static String SCANITEM_UPDATE_ERROR_CODE = "10060004";
+	public final static String SCANITEM_UPDATE_ERROR_MESSAGE = "更新ScanItem失败!";
 
 	
 }

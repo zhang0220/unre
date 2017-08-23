@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.unre.photo.biz.dto.PhotoScanItemDto;
 
-public class PhotoScanItemResponse {
+public class PhotoScanItemResponse extends BaseResponse{
 	private PhotoScanItemDto photoScanItemDto;
 
 	private List<PhotoScanItemDto> photoScanItemDtoList;

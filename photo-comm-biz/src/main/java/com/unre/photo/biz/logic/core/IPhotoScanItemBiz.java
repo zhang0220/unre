@@ -3,8 +3,10 @@ package com.unre.photo.biz.logic.core;
 import java.util.List;
 
 import com.unre.photo.biz.dto.PhotoMemberDto;
+import com.unre.photo.biz.dto.PhotoScanDto;
 import com.unre.photo.biz.dto.PhotoScanItemDto;
 import com.unre.photo.biz.exception.BusinessException;
+import com.unre.photo.biz.request.PhotoScanItemRequest;
 
 public interface IPhotoScanItemBiz {
 
@@ -43,10 +45,21 @@ public interface IPhotoScanItemBiz {
 	/**
 	 * 删除PhotoScanItem
 	 * 
-	 * @param id --要删除的PhotoMember ID
+	 * @param id --要删除的PhotoScanItem( ID
 	 * 
 	 * @return boolean 
 	 * @throws BusinessException
 	 */
 	public void deletePhotoScanItem(Long id) throws BusinessException;
+	
+	/**
+	 * 更新PhotoScanItem
+	 * 
+	 * @param PhotoScanItem --要更新的PhotoScanItem
+	 * 
+	 * @return boolean
+	 * @throws BusinessException
+	 */
+	public boolean updatePhotoScanItem(PhotoScanItemDto photoScanItemDto) throws BusinessException;
+	
 }

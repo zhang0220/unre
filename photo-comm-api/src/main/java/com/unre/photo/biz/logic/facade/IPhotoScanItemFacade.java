@@ -1,6 +1,7 @@
 package com.unre.photo.biz.logic.facade;
 
 import com.unre.photo.biz.request.PhotoScanItemRequest;
+import com.unre.photo.biz.request.PhotoScanRequest;
 import com.unre.photo.biz.response.PhotoScanItemResponse;
 
 public interface IPhotoScanItemFacade {
@@ -22,5 +23,15 @@ public interface IPhotoScanItemFacade {
 	 * @param id
 	 * @throws Exception
 	 */
-	public void deletePhotoScanItem(Long id) throws Exception;
+	public PhotoScanItemResponse deletePhotoScanItem(Long id) throws Exception;
+	
+	/**
+	 * 更新PhotoScanItem
+	 * 
+	 * @param request
+	 * 
+	 * @return boolean
+	 * @throws BusinessException
+	 */
+	public PhotoScanItemResponse updatePhotoScanItem(PhotoScanItemRequest request) throws Exception;
 }

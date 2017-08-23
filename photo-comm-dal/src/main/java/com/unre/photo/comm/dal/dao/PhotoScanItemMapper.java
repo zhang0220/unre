@@ -19,4 +19,6 @@ public interface PhotoScanItemMapper {
 	
 	// --------------------------------
 	List<PhotoScanItem> selectBySelective(PhotoScanItem record);
+	
+	int updateBySelective(PhotoScanItem record);
 }
