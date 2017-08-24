@@ -36,23 +36,29 @@ public class PanoramaEngineController extends BaseController<PanoramaEngineContr
 
 	@ApiOperation(value = "创建scanID", httpMethod = "POST", response = PhotoScanItemResponse.class)
 	@ApiImplicitParams({
-		    @ApiImplicitParam(name = "PanoramaEngineDto.apiBaseUrl", value = "apiBaseUrl", required = false, dataType = "string"),
-			@ApiImplicitParam(name = "PanoramaEngineDto.apiKey", value = "apikey", required = false, dataType = "string"),
-			@ApiImplicitParam(name = "PanoramaEngineDto.title", value = "scan名称", required = false, dataType = "string"), })
+			@ApiImplicitParam(name = "panoramaEngineDto.title", value = "scan名称", required = false, dataType = "string"), })
 	@RequestMapping(value = "/createScan.do", method = RequestMethod.POST)
 	public @ResponseBody PanoramaEngineResponse createScan(@RequestBody PanoramaEngineRequest request,
 			HttpServletRequest servletRequest) throws Exception {
-		request.getPanoramaEngineDto().setApiBaseUrl("https://beta.benaco.com/api/beta/scans/");
 		request.getPanoramaEngineDto().setApiKey("3c7c6941-2204-4ee7-a4b5-0981e0e6e09c");
-		request.getPanoramaEngineDto().setTitle("aa");
+		request.getPanoramaEngineDto().setApiBaseUrl("https://beta.benaco.com/api/beta/scans/");
 		return panoramaEngineFacade.createScan(request);
 	}
 
-	@ResponseBody
+	@ApiImplicitParams({
+	    @ApiImplicitParam(name = "panoramaEngineDto.apiBaseUrl", value = "apiBaseUrl", required = true, dataType = "string"),
+		@ApiImplicitParam(name = "panoramaEngineDto.apiKey", value = "apikey", required = true, dataType = "string"),
+		@ApiImplicitParam(name = "panoramaEngineDto.benacoScanId", value = "scanid名称", required = true, dataType = "string"), 
+		@ApiImplicitParam(name = "panoramaEngineDto.files", value = "files", required = true, dataType = "List<File>"),})
 	@RequestMapping(value = "/addPhotos.do", method = RequestMethod.POST)
-	public PanoramaEngineResponse addPhotos(@RequestBody PanoramaEngineRequest request,
+	public @ResponseBody PanoramaEngineResponse addPhotos(@RequestBody PanoramaEngineRequest request,
 			HttpServletRequest servletRequest) throws Exception {
-		MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+		request.getPanoramaEngineDto().setApiKey("3c7c6941-2204-4ee7-a4b5-0981e0e6e09c");
+		request.getPanoramaEngineDto().setApiBaseUrl("https://beta.benaco.com/api/beta/scans/");
+		List<File> files = request.getPanoramaEngineDto().getFiles();//
+		
+		
+		/*MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) servletRequest;
 		Map<String, List<MultipartFile>> map = multiRequest.getMultiFileMap();
 		List<File> listFile = new ArrayList<File>();
 		// 这个map获取的就是所有的file对象集合，通过循环可以获取到所有的file
@@ -68,8 +74,8 @@ public class PanoramaEngineController extends BaseController<PanoramaEngineContr
 					e.printStackTrace();
 				}
 			});
-		});
-		request.getPanoramaEngineDto().setFiles(listFile);
+		});*/
+		request.getPanoramaEngineDto().setFiles(files);
 		return panoramaEngineFacade.addPhotos(request);
 	}
 

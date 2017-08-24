@@ -9,7 +9,7 @@ public class PhotoScanDto {
 	private String benacoScanId;
 	private Long btch_no;
 	private String title;
-	private String desc;
+	private String description;
 	private String image_path;
 	private String thumb_image_path;
 	private String status;
@@ -58,12 +58,12 @@ public class PhotoScanDto {
 		this.title = title;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getdescription() {
+		return description;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setdescription(String description) {
+		this.description = description;
 	}
 
 	public String getImage_path() {
