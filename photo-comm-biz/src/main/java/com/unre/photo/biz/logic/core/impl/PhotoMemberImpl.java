@@ -61,7 +61,7 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 		return photoMemberDtoList;
 	}
 
-	// 注册
+	// 娉ㄥ唽
 	@Override
 	public PhotoMemberDto addPhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException {
 		PhotoMember photomember = new PhotoMember();
@@ -72,11 +72,11 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 			for (int i = 0; i < photoMemberslist.size(); i++) {
 				PhotoMember photoMember =photoMemberslist.get(i);
 				if (photoMember.getTel().equals(photoMemberDto.getTel())) {
-					throw new BusinessException(AppConstants.FAIL_CODE,
-							AppConstants.FAIL_CODE);
+					throw new BusinessException(AppConstants.QUERY_ADD_TEL_ERROR_CODE,
+							AppConstants.QUERY_ADD_TEL_ERROR_MESSAGE);
 				}else if (photoMember.getMail().equals(photoMemberDto.getMail())) {
-					throw new BusinessException(AppConstants.FAIL_CODE,
-							AppConstants.FAIL_CODE);
+					throw new BusinessException(AppConstants.QUERY_ADD_MAIL_ERROR_CODE,
+							AppConstants.QUERY_ADD_MAIL_ERROR_MESSAGE);
 				}
 			}
 		}
@@ -98,7 +98,7 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 
 	}
 
-	// 登录
+	// 鐧诲綍
 	@Override
 	public PhotoMemberDto queryLoginUsers(PhotoMemberDto photoMemberDto) throws BusinessException {
 		PhotoMember photomember;
