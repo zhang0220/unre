@@ -175,34 +175,34 @@
 		from tbl_photo_scan
 		where 1=1
 		<if test="memberId != null">
-			and member_id = #{memberId,jdbcType=BIGINT},
+			and member_id = #{memberId,jdbcType=BIGINT}
 		</if>
 		<if test="benacoScanId != null">
-			and benaco_scan_id = #{benacoScanId,jdbcType=VARCHAR},
+			and benaco_scan_id = #{benacoScanId,jdbcType=VARCHAR}
 		</if>
 		<if test="btchNo != null">
-			and btch_no = #{btchNo,jdbcType=BIGINT},
+			and btch_no = #{btchNo,jdbcType=BIGINT}
 		</if>
 		<if test="title != null">
-			and title = #{title,jdbcType=INTEGER},
+			and title = #{title,jdbcType=INTEGER}
 		</if>
 		<if test="description != null">
-			and description = #{description,jdbcType=VARCHAR},
+			and description = #{description,jdbcType=VARCHAR}
 		</if>
 		<if test="status != null">
-			and status = #{status,jdbcType=CHAR},
+			and status = #{status,jdbcType=CHAR}
 		</if>
 		<if test="createBy != null">
-			and create_by = #{createBy,jdbcType=INTEGER},
+			and create_by = #{createBy,jdbcType=INTEGER}
 		</if>
 		<if test="createTime != null">
-			and create_time = #{createTime,jdbcType=TIMESTAMP},
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
 		</if>
 		<if test="updateBy != null">
-			and update_by = #{updateBy,jdbcType=INTEGER},
+			and update_by = #{updateBy,jdbcType=INTEGER}
 		</if>
 		<if test="updateTime != null">
-			and update_time = #{updateTime,jdbcType=TIMESTAMP},
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
 		</if>
 		order by create_time desc
 	</select>
@@ -241,7 +241,7 @@
 				update_time = #{updateTime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="version != null">
-			    version = #{version+1,jdbcType=BIGINT}
+			    version = #{version,jdbcType=BIGINT}+1
 		    </if>
 		</set>
 		where id = #{id,jdbcType=BIGINT} 
@@ -267,7 +267,7 @@
 				status = #{status,jdbcType=CHAR},
 			</if>
 			<if test="version != null">
-			    version = #{version+1,jdbcType=BIGINT}
+			    version = #{version,jdbcType=BIGINT}+1
 		    </if>
 		</set>
 		where benaco_scan_id = #{benacoScanId,jdbcType=VARCHAR} 
