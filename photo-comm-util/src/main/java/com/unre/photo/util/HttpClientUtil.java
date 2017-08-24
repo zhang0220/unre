@@ -157,12 +157,10 @@ public class HttpClientUtil {
 			HttpEntity entity = response.getEntity();
 			retCode = response.getStatusLine().getStatusCode();
 			retContext = EntityUtils.toString(entity, "UTF-8");
-			if (retCode == HttpStatus.SC_OK) {
-				hcResponse.setCode("SUCCESS");
-			}
+			hcResponse.setCode(""+retCode);
 			hcResponse.setContext(retContext);
 		} catch (IOException e) {
-			hcResponse.setCode("FAIL");
+			hcResponse.setCode("-1");
 			e.printStackTrace();
 		} finally {
 			if (response != null) {
@@ -202,7 +200,7 @@ public class HttpClientUtil {
 
 			int statusCode = httpResponse.getStatusLine().getStatusCode();
 			if (statusCode == HttpStatus.SC_OK) {
-				hcResponse.setCode("SUCCESS");
+				hcResponse.setCode(""+statusCode);
 				/*
 				 * // 接收远程输入流 inStream = httpResponse.getEntity().getContent();
 				 * // 分段读取输入流数据 ByteArrayOutputStream baos = new
@@ -213,6 +211,7 @@ public class HttpClientUtil {
 				 */
 			}
 		} catch (Exception e) {
+			hcResponse.setCode("-1");
 			e.printStackTrace();
 		} finally {
 			// inStream.close();

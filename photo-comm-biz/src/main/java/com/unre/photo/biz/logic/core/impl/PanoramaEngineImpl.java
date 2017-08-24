@@ -14,14 +14,13 @@ import org.springframework.stereotype.Service;
 
 import com.unre.photo.biz.dto.PanoramaEngineDto;
 import com.unre.photo.biz.dto.PhotoScanDto;
-import com.unre.photo.biz.dto.PhotoScanItemDto;
 import com.unre.photo.biz.exception.BusinessException;
 import com.unre.photo.biz.logic.core.IPanoramaEngineBiz;
 import com.unre.photo.biz.logic.core.IPhotoScanBiz;
-import com.unre.photo.biz.logic.core.IPhotoScanItemBiz;
 import com.unre.photo.comm.AppConstants;
 import com.unre.photo.util.HttpClientResponse;
 import com.unre.photo.util.HttpClientUtil;
+import com.unre.photo.util.JsonUtil;
 
 @Service
 public class PanoramaEngineImpl implements IPanoramaEngineBiz {
@@ -125,16 +124,17 @@ public class PanoramaEngineImpl implements IPanoramaEngineBiz {
 			}
 
 		} catch (Exception e) {
-			LOGGER.error(AppConstants.PENGINE_START_PROCESS_ERROR_CODE, e);
+			LOGGER.error(AppConstants.PENGINE_START_PROCESS_ERROR_MESSAGE, e);
 			throw new BusinessException(AppConstants.PENGINE_START_PROCESS_ERROR_CODE,
 					AppConstants.PENGINE_START_PROCESS_ERROR_MESSAGE);
 		}
 		return retFlg;
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public PanoramaEngineDto queryScanStatus(PanoramaEngineDto panoramaEngineDto) throws Exception {
+		
+		PanoramaEngineDto PEngineDto = new PanoramaEngineDto();
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("key", panoramaEngineDto.getApiKey());
@@ -142,14 +142,19 @@ public class PanoramaEngineImpl implements IPanoramaEngineBiz {
 			String addPhotosUrl = panoramaEngineDto.getApiBaseUrl() + "id/" + panoramaEngineDto.getBenacoScanId()
 					+ "/status";
 			HttpClientResponse hcResponse = HttpClientUtil.doPost(addPhotosUrl, json);
-			String retCode = hcResponse.getCode();
+			String httpRetCode = hcResponse.getCode();
+			if("200".equals(httpRetCode)){
+				String context = hcResponse.getContext();
+				Map<String,Object> map = JsonUtil.toMap(context);
+				PEngineDto.setScanStatus(map.get("status").toString());
+			}
 		} catch (Exception e) {
 			LOGGER.error(AppConstants.PENGINE_QUERY_SCAN_STATUS_ERROR_CODE, e);
 			throw new BusinessException(AppConstants.PENGINE_QUERY_SCAN_STATUS_ERROR_CODE,
 					AppConstants.PENGINE_QUERY_SCAN_STATUS_ERROR_MESSAGE);
 		}
 
-		return null;
+		return PEngineDto;
 	}
 
 	@Override

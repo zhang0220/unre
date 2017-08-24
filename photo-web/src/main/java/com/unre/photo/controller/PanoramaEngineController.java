@@ -1,10 +1,7 @@
 package com.unre.photo.controller;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,14 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.unre.photo.biz.logic.facade.IPanoramaEngineFacade;
 import com.unre.photo.biz.request.PanoramaEngineRequest;
 import com.unre.photo.biz.response.PanoramaEngineResponse;
-import com.unre.photo.biz.response.PhotoMemberResponse;
 import com.unre.photo.biz.response.PhotoScanItemResponse;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
-
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 @RequestMapping("/engine")

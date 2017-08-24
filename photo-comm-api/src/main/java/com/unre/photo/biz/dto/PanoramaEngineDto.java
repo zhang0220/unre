@@ -16,6 +16,8 @@ public class PanoramaEngineDto {
 	private List<File> files;
 
 	private String previewUrl;
+	
+	private String scanStatus;
 
 	public String getApiBaseUrl() {
 		return apiBaseUrl;
@@ -63,6 +65,14 @@ public class PanoramaEngineDto {
 
 	public void setPreviewUrl(String previewUrl) {
 		this.previewUrl = previewUrl;
+	}
+
+	public String getScanStatus() {
+		return scanStatus;
+	}
+
+	public void setScanStatus(String scanStatus) {
+		this.scanStatus = scanStatus;
 	}
 
 }

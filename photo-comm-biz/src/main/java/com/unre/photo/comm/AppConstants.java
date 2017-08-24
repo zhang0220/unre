@@ -58,6 +58,9 @@ public final static String SYSTEM_ERROR_CODE = "10000001"; //系统异常
 	public final static String SCAN_SAVE_IMAGE_ERROR_CODE = "10050005";
 	public final static String SCAN_SAVE_IMAGE_ERROR_MESSAGE = "保存图片信息失败!";
 	
+	public final static String SCAN_BENACO_SCAN_ID_ERROR_CODE = "10050006";
+	public final static String SCAN_BENACO_SCAN_ID_ERROR_MESSAGE = "benaco scan id 异常!";
+	
 	//Photo Scan Item
 	
 	public final static String SCANITEM_UPDATE_ERROR_CODE = "10060004";

@@ -68,12 +68,13 @@ public class PhotoScanImpl implements IPhotoScanBiz {
 		return photoScanoList;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public PhotoScanDto addPhotoScan(PhotoScanDto photoScanDto) throws BusinessException {
 		PhotoScanDto retPhotoDto = null;
 		try {
 			PhotoScan photoScan = ModelUtil.dtoToModel(photoScanDto, PhotoScan.class);
-			photoScanMapper.insertSelective(photoScan);
+			int i = photoScanMapper.insertSelective(photoScan);
 			Long id = photoScan.getId();
 			retPhotoDto = this.findPhotoScanById(id);
 		} catch (Exception e) {
@@ -103,9 +104,19 @@ public class PhotoScanImpl implements IPhotoScanBiz {
 	@Override
 	public void updatePhotoScanByBenacoId(PhotoScanDto photoScanDto) throws BusinessException {
 		try {
-			PhotoScan photoScan = ModelUtil.dtoToModel(photoScanDto, PhotoScan.class);
-			int flag = photoScanMapper.updatePhotoScanByBenacoId(photoScan);
-			if (1 != flag) { // flag == 1 操作成功,否则操作失败
+	
+			//1.更新scan状态
+			PhotoScan pScanParm = new PhotoScan();
+			pScanParm.setBenacoScanId(photoScanDto.getBenacoScanId());
+			List<PhotoScan> pScanList = photoScanMapper.selectBySelective(pScanParm);
+			if(pScanList.size()==0 || pScanList.size()>1){
+				throw new BusinessException(AppConstants.SCAN_BENACO_SCAN_ID_ERROR_CODE,
+						AppConstants.SCAN_BENACO_SCAN_ID_ERROR_MESSAGE);
+			}
+			PhotoScan pScan = pScanList.get(0);
+			pScan.setStatus(AppConstants.SFILE_PROCESSING);
+			int i = photoScanMapper.updatePhotoScanByBenacoId(pScan);
+			if (i != 1) { // i == 1 操作成功,否则操作失败
 				throw new BusinessException(AppConstants.SCAN_UPDATE_ERROR_CODE,
 						AppConstants.SCAN_UPDATE_ERROR_MESSAGE);
 			}
@@ -129,8 +140,14 @@ public class PhotoScanImpl implements IPhotoScanBiz {
 		boolean flg = false;
 		try {
 			//1.更新scan状态
-			PhotoScan pScan = new PhotoScan();
-			pScan.setBenacoScanId(benacoScanId);
+			PhotoScan pScanParm = new PhotoScan();
+			pScanParm.setBenacoScanId(benacoScanId);			
+			List<PhotoScan> pScanList = photoScanMapper.selectBySelective(pScanParm);
+			if(pScanList.size()==0 || pScanList.size()>1){
+				throw new BusinessException(AppConstants.SCAN_BENACO_SCAN_ID_ERROR_CODE,
+						AppConstants.SCAN_BENACO_SCAN_ID_ERROR_MESSAGE);
+			}
+			PhotoScan pScan = pScanList.get(0);
 			pScan.setStatus(AppConstants.SFILE_UPLOAD_COMPLETE);
 			int i = photoScanMapper.updatePhotoScanByBenacoId(pScan);
 			

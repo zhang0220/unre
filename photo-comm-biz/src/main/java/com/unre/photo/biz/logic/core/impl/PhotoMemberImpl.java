@@ -72,11 +72,11 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 			for (int i = 0; i < photoMemberslist.size(); i++) {
 				PhotoMember photoMember =photoMemberslist.get(i);
 				if (photoMember.getTel().equals(photoMemberDto.getTel())) {
-					throw new BusinessException(AppConstants.QUERY_ADD_TEL_ERROR_CODE,
-							AppConstants.QUERY_ADD_TEL_ERROR_MESSAGE);
+					throw new BusinessException(AppConstants.FAIL_CODE,
+							AppConstants.FAIL_CODE);
 				}else if (photoMember.getMail().equals(photoMemberDto.getMail())) {
-					throw new BusinessException(AppConstants.QUERY_ADD_MAIL_ERROR_CODE,
-							AppConstants.QUERY_ADD_MAIL_ERROR_MESSAGE);
+					throw new BusinessException(AppConstants.FAIL_CODE,
+							AppConstants.FAIL_CODE);
 				}
 			}
 		}
