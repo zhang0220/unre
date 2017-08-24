@@ -22,5 +22,8 @@ public interface PhotoMemberMapper {
 
 	// 登录
 	PhotoMember queryLoginUsers(PhotoMember photoMember);
+	
+	List<PhotoMember> selectByTelOrMail(PhotoMember record);
+
 
 }

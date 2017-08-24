@@ -64,13 +64,28 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 	// 注册
 	@Override
 	public PhotoMemberDto addPhotoMember(PhotoMemberDto photoMemberDto) throws BusinessException {
-		PhotoMemberDto photoRes = null;
+		PhotoMember photomember = new PhotoMember();
+		photomember.setTel(photoMemberDto.getTel());
+		photomember.setMail(photoMemberDto.getMail());
+		List<PhotoMember> photoMemberslist =photoMemberMapper.selectByTelOrMail(photomember);
+		if (photoMemberslist.size()>0) {
+			for (int i = 0; i < photoMemberslist.size(); i++) {
+				PhotoMember photoMember =photoMemberslist.get(i);
+				if (photoMember.getTel().equals(photoMemberDto.getTel())) {
+					throw new BusinessException(AppConstants.QUERY_ADD_TEL_ERROR_CODE,
+							AppConstants.QUERY_ADD_TEL_ERROR_MESSAGE);
+				}else if (photoMember.getMail().equals(photoMemberDto.getMail())) {
+					throw new BusinessException(AppConstants.QUERY_ADD_MAIL_ERROR_CODE,
+							AppConstants.QUERY_ADD_MAIL_ERROR_MESSAGE);
+				}
+			}
+		}
 		try {
-			PhotoMember photomember = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
-			photoMemberMapper.insertSelective(photomember);
-			Long id = photomember.getId();
-			photoRes = findPhotoMemberById(id);
-			if (photoRes == null) {
+			PhotoMember photomembers = ModelUtil.dtoToModel(photoMemberDto, PhotoMember.class);
+			photoMemberMapper.insertSelective(photomembers);
+			Long id = photomembers.getId();
+			photoMemberDto = findPhotoMemberById(id);
+			if (photoMemberDto == null) {
 				throw new BusinessException(AppConstants.QUERY_ADD_USER_ERROR_CODE,
 						AppConstants.QUERY_ADD_USER_ERROR_MESSAGE);
 			}
@@ -79,7 +94,7 @@ public class PhotoMemberImpl implements IPhotoMemberBiz {
 			throw new BusinessException(AppConstants.QUERY_ADD_USER_ERROR_CODE,
 					AppConstants.QUERY_ADD_USER_ERROR_MESSAGE);
 		}
-		return photoRes;
+		return photoMemberDto;
 
 	}
 

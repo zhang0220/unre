@@ -20,12 +20,14 @@
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="update_by" property="updateBy" jdbcType="INTEGER" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-	
+
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, member_name, member_no, password, company, province, city, adress,
+		id, member_name, member_no, password, company, province,
+		city, adress,
 		industry,
-		contact, tel, mail, type, level, create_by, create_time, update_by,
+		contact, tel, mail, type, level, create_by,
+		create_time, update_by,
 		update_time
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -36,25 +38,34 @@
 		where id = #{id,jdbcType=BIGINT}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-		delete from tbl_photo_member
+		delete from
+		tbl_photo_member
 		where id = #{id,jdbcType=BIGINT}
 	</delete>
 	<insert id="insert" parameterType="com.unre.photo.comm.dal.model.PhotoMember"
 		useGeneratedKeys="true" keyProperty="id">
-		insert into tbl_photo_member (member_name, member_no, password,
+		insert into tbl_photo_member
+		(member_name, member_no, password,
 		company, province, city,
-		adress, industry, contact,
+		adress,
+		industry, contact,
 		tel, mail, type, level,
-		create_by, create_time, update_by,
+		create_by, create_time,
+		update_by,
 		update_time)
-		values (#{memberName,jdbcType=VARCHAR}, #{memberNo,jdbcType=VARCHAR},
+		values (#{memberName,jdbcType=VARCHAR},
+		#{memberNo,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
-		#{company,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
-		#{adress,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR},
+		#{company,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR},
+		#{adress,jdbcType=VARCHAR},
+		#{industry,jdbcType=VARCHAR},
 		#{contact,jdbcType=VARCHAR},
-		#{tel,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{type,jdbcType=CHAR},
+		#{tel,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR},
+		#{type,jdbcType=CHAR},
 		#{level,jdbcType=CHAR},
-		#{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=INTEGER},
+		#{createBy,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+		#{updateBy,jdbcType=INTEGER},
 		#{updateTime,jdbcType=TIMESTAMP})
 	</insert>
 	<insert id="insertSelective" parameterType="com.unre.photo.comm.dal.model.PhotoMember"
@@ -225,24 +236,33 @@
 		where id = #{id,jdbcType=BIGINT}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.unre.photo.comm.dal.model.PhotoMember">
-		update tbl_photo_member
+		update
+		tbl_photo_member
 		set member_name = #{memberName,jdbcType=VARCHAR},
 		member_no = #{memberNo,jdbcType=VARCHAR},
-		password = #{password,jdbcType=VARCHAR},
+		password =
+		#{password,jdbcType=VARCHAR},
 		company = #{company,jdbcType=VARCHAR},
 		province = #{province,jdbcType=VARCHAR},
-		city = #{city,jdbcType=VARCHAR},
+		city =
+		#{city,jdbcType=VARCHAR},
 		adress = #{adress,jdbcType=VARCHAR},
-		industry = #{industry,jdbcType=VARCHAR},
+		industry
+		= #{industry,jdbcType=VARCHAR},
 		contact = #{contact,jdbcType=VARCHAR},
 		tel = #{tel,jdbcType=VARCHAR},
 		mail = #{mail,jdbcType=VARCHAR},
-		type = #{type,jdbcType=CHAR},
+		type =
+		#{type,jdbcType=CHAR},
 		level = #{level,jdbcType=CHAR},
-		create_by = #{createBy,jdbcType=INTEGER},
-		create_time = #{createTime,jdbcType=TIMESTAMP},
-		update_by = #{updateBy,jdbcType=INTEGER},
-		update_time = #{updateTime,jdbcType=TIMESTAMP}
+		create_by =
+		#{createBy,jdbcType=INTEGER},
+		create_time =
+		#{createTime,jdbcType=TIMESTAMP},
+		update_by =
+		#{updateBy,jdbcType=INTEGER},
+		update_time =
+		#{updateTime,jdbcType=TIMESTAMP}
 		where id = #{id,jdbcType=BIGINT}
 	</update>
 
@@ -302,7 +322,24 @@
 		<include refid="Base_Column_List" />
 		from tbl_photo_member
 		where tel = #{tel,jdbcType=VARCHAR}
-		and password = #{password,jdbcType=VARCHAR}
+		and password =
+		#{password,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 验证手机号、邮箱 -->
+	<select id="selectByTelOrMail" resultMap="BaseResultMap"
+		parameterType="com.unre.photo.comm.dal.model.PhotoMember">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_photo_member
+		where 1=1
+		<if test="tel != null">
+			and tel = #{tel,jdbcType=VARCHAR}
+		</if>
+
+		<if test="mail != null">
+			or mail = #{mail,jdbcType=VARCHAR}
+		</if>
 	</select>
 
 </mapper>
