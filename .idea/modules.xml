@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/photo.iml" filepath="$PROJECT_DIR$/photo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photo-comm-api/photo-comm-api.iml" filepath="$PROJECT_DIR$/photo-comm-api/photo-comm-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photo-comm-biz/photo-comm-biz.iml" filepath="$PROJECT_DIR$/photo-comm-biz/photo-comm-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photo-comm-dal/photo-comm-dal.iml" filepath="$PROJECT_DIR$/photo-comm-dal/photo-comm-dal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photo-comm-util/photo-comm-util.iml" filepath="$PROJECT_DIR$/photo-comm-util/photo-comm-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photo-web/photo-web.iml" filepath="$PROJECT_DIR$/photo-web/photo-web.iml" />
+    </modules>
+  </component>
+</project>

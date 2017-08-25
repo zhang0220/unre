@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/photo-comm-api" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/photo-comm-biz" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/photo-comm-dal" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/photo-comm-util" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/photo-web" vcs="svn" />
+  </component>
+</project>
